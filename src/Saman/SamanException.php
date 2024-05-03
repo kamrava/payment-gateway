@@ -9,8 +9,11 @@ class SamanException extends BankException
 
     public static $errors = array(
         "OK" => "پرداخت با موفقیت انجام شد",
-        'Canceled By User' => 'تراکنش توسط کاربر کنسل شد',
+        'Canceled By User' => 'تراکنش توسط خریدار کنسل شد',
         'Invalid Amount' => 'مبلغ سند برگشتی از مبلغ تراکنش اصلی بیشتر است',
+        'Merchant Invalid' => 'پذیرنده فروشگاهی نامعتبر است',
+        'Do Not Honour' => 'از انجام تراکنش صرف نظر شد',
+        'Honour With Identification' => 'با تشخیص هویت دارنده کارت،تراکنش موفق می باشد',
         'Invalid Transaction' => 'درخواست برگشت تراکنش رسیده است در حالی که تراکنش اصلی پیدا نمی شود',
         'Invalid Card Number' => 'شماره کارت اشتباه است',
         'No Such Issuer' => 'چنین صادر کننده کارتی وجود ندارد',
@@ -50,6 +53,6 @@ class SamanException extends BankException
     {
         $this->errorRef = $errorRef;
 
-        parent::__construct(@self::$errors[$this->errorRef], intval($this->errorRef));
+        parent::__construct(@self::$errors[$this->errorRef].' ('.$this->errorRef.')', intval($this->errorRef));
     }
 }
