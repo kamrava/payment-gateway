@@ -1,6 +1,6 @@
 <?php
 
-namespace Larabookir\Gateway\Drivers\Sadad;
+namespace Larabookir\Gateway\Sadad;
 
 use GuzzleHttp\Client;
 use Larabookir\Gateway\Abstracts\Driver;
