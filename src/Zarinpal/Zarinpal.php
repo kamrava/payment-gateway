@@ -59,7 +59,7 @@ class Zarinpal extends PortAbstract implements PortInterface
 	 *
 	 * @var string
 	 */
-	protected $mobileNumber;
+	protected $mobile;
 
 	/**
 	 * Address of gate for redirect
@@ -234,9 +234,8 @@ class Zarinpal extends PortAbstract implements PortInterface
 			'MerchantID' => $this->getBankAttr(BankGatewayEnum::ZARINPAL, 'merchant-id'),
 			'Amount' => $this->amount,
 			'CallbackURL' => $this->getCallback(),
-			'Description' => $this->description ? $this->description : $this->getBankAttr(BankGatewayEnum::ZARINPAL, 'description'),
-			'Email' => $this->email ? $this->email :$this->getBankAttr(BankGatewayEnum::ZARINPAL, 'email'),
-			'Mobile' => $this->mobileNumber ? $this->mobileNumber : $this->getBankAttr(BankGatewayEnum::ZARINPAL, 'mobile'),
+			'Mobile' => $this->mobile,
+			'Description' => $this->description,
 		);
 
 		try {
@@ -343,18 +342,6 @@ class Zarinpal extends PortAbstract implements PortInterface
 		}
 	}
 
-
-	/**
-	 * Set Description
-	 *
-	 * @param $description
-	 * @return void
-	 */
-	public function setDescription($description)
-	{
-		$this->description = $description;
-	}
-
 	/**
 	 * Set Payer Email Address
 	 *
@@ -366,14 +353,4 @@ class Zarinpal extends PortAbstract implements PortInterface
 		$this->email = $email;
 	}
 
-	/**
-	 * Set Payer Mobile Number
-	 *
-	 * @param $number
-	 * @return void
-	 */
-	public function setMobileNumber($number)
-	{
-		$this->mobileNumber = $number;
-	}
 }

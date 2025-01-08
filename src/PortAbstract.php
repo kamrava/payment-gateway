@@ -57,6 +57,20 @@ abstract class PortAbstract
 	protected $is_toman;
 
 	/**
+	 * Payment Description
+	 *
+	 * @var string
+	 */
+	protected $description;
+
+	/**
+	 * Payment User Mobile Number
+	 *
+	 * @var string
+	 */
+	protected $mobile;
+
+	/**
 	 * Amount
 	 *
 	 * @var int
@@ -176,6 +190,26 @@ abstract class PortAbstract
 			$this->is_toman = true;
 		}
 		$this->portName = $name;
+	}
+
+	/**
+	 * Set Payment Description
+	 *
+	 * @return int
+	 */
+	function setDescription($description)
+	{
+		$this->description = $description;
+	}
+
+	/**
+	 * Set Payment User Mobile Number
+	 *
+	 * @return string
+	 */
+	function setMobileNumber($mobile)
+	{
+		$this->mobile = $mobile;
 	}
 
 	/**
@@ -321,7 +355,7 @@ abstract class PortAbstract
     {
         return $this->paymentable_type;
 	}
-	
+
 	public function getBankAttr($bank_name, $attr)
     {
         return $this->new_config->where('name', $bank_name)->first()->jsonData($attr);

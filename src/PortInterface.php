@@ -57,6 +57,24 @@ interface PortInterface
     public function cardNumber();
 
     /**
+     * Set Payment Description
+     *
+     * @param string $description
+     * 
+     * @return string
+     */
+    public function setDescription($description);
+
+    /**
+     * Set Payment User Mobile Number
+     *
+     * @param string $mobile
+     * 
+     * @return string
+     */
+    public function setMobileNumber($mobile);
+
+    /**
      * Sets callback url
      *
      * @return string
